@@ -1,0 +1,27 @@
+import itertools
+n = int(input())
+alis = [input().split(';') for x in range(n)]
+teams = [(x[0], x[2]) for x in alis]
+set_teams = set(itertools.chain.from_iterable(teams))
+res = {team:[0, 0, 0, 0, 0] for team in set_teams}
+print(alis)
+
+for kom1, gol1, kom2, gol2 in alis:
+    res[kom1][0] += 1
+    res[kom2][0] += 1
+    if int(gol1) > int(gol2):
+        res[kom1][1] += 1
+        res[kom1][4] += 3
+        res[kom2][3] += 1
+    elif int(gol1) < int(gol2):
+        res[kom2][1] += 1
+        res[kom2][4] += 3
+        res[kom1][3] += 1
+    elif int(gol1) == int(gol2):
+        res[kom1][2] += 1
+        res[kom1][4] += 1
+        res[kom2][2] += 1
+        res[kom2][4] += 1
+
+for team in set_teams:
+    print('{}:{}'.format(team, ' '.join(map(str, res[team]))))
