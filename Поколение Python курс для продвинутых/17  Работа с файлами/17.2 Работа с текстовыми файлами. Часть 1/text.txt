@@ -1,0 +1,7 @@
+At the input program, a line with the name of the text file is supplied. Write a program that displays its penultimate line on the screen.
+Input format
+At the input of the program, a line of text is submitted with the name of the existing text file.
+Output format
+The program should display the penultimate line of the specified file.
+Note 1. Consider that the executable program and the specified file are in one folder.
+Note 2. It is guaranteed that the file contains at least two lines.
